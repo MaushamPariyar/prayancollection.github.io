@@ -1,1 +1,292 @@
 # prayancollection.github.io
+import React, { useState } from 'react';
+import { ShoppingCart, Search, Heart, User, ChevronDown, Tag, TrendingUp } from 'lucide-react';
+
+const TopBanner = () => (
+  <div className="bg-pink-600 text-white text-center py-2 text-sm">
+    Flat 40% Off on First Purchase | Free Delivery on Orders Above NPR 2000
+  </div>
+);
+
+const Navbar = () => {
+  const categories = [
+    { name: "MEN", subcategories: ["T-Shirts", "Casual Shirts", "Formal Shirts", "Jeans", "Trousers", "Suits"] },
+    { name: "WOMEN", subcategories: ["Kurtas & Suits", "Tops", "Dresses", "Jeans", "Western Wear", "Ethnic Wear"] },
+  ];
+
+  return (
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center h-16">
+          <div className="text-2xl font-bold text-pink-600 mr-8">PRAYAN</div>
+          
+          {/* Categories */}
+          <div className="hidden lg:flex flex-1 space-x-8">
+            {categories.map((category) => (
+              <div key={category.name} className="group relative">
+                <button className="flex items-center space-x-1 py-2">
+                  <span className="font-semibold">{category.name}</span>
+                  <ChevronDown size={16} />
+                </button>
+                
+                {/* Dropdown */}
+                <div className="hidden group-hover:block absolute left-0 w-60 bg-white shadow-lg p-4">
+                  {category.subcategories.map((sub) => (
+                    <a key={sub} href="#" className="block py-2 hover:text-pink-600">
+                      {sub}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Search Bar */}
+          <div className="flex-1 max-w-xl px-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-2.5 text-gray-400" size={20} />
+              <input
+                type="text"
+                placeholder="Search for products, brands and more"
+                className="w-full pl-10 pr-4 py-2 bg-gray-50 rounded-md border focus:outline-none focus:border-pink-600"
+              />
+            </div>
+          </div>
+
+          {/* Icons */}
+          <div className="flex items-center space-x-6 ml-8">
+            <div className="text-center">
+              <User className="mx-auto" size={20} />
+              <span className="text-xs">Profile</span>
+            </div>
+            <div className="text-center">
+              <Heart className="mx-auto" size={20} />
+              <span className="text-xs">Wishlist</span>
+            </div>
+            <div className="text-center">
+              <ShoppingCart className="mx-auto" size={20} />
+              <span className="text-xs">Bag</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+const HeroBanner = () => (
+  <div className="relative h-96">
+    <img 
+      src="/api/placeholder/1400/500" 
+      alt="Fashion Banner" 
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute bottom-8 left-8">
+      <h2 className="text-4xl font-bold text-white mb-4">BIGGEST DEALS ON TOP BRANDS</h2>
+      <button className="bg-pink-600 text-white px-8 py-3 rounded-md hover:bg-pink-700">
+        Shop Now
+      </button>
+    </div>
+  </div>
+);
+
+const DealsSection = () => {
+  const deals = [
+    { title: "Best of Brands", discount: "40-70% OFF", image: "/api/placeholder/250/250" },
+    { title: "Festive Specials", discount: "50% OFF", image: "/api/placeholder/250/250" },
+    { title: "First Purchase", discount: "40% OFF", image: "/api/placeholder/250/250" },
+    { title: "Trending Now", discount: "30-60% OFF", image: "/api/placeholder/250/250" }
+  ];
+
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <h2 className="text-2xl font-bold mb-8">DEALS OF THE DAY</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {deals.map((deal, index) => (
+          <div key={index} className="group cursor-pointer">
+            <div className="relative overflow-hidden">
+              <img 
+                src={deal.image} 
+                alt={deal.title}
+                className="w-full transform group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black p-4">
+                <h3 className="text-white font-bold">{deal.title}</h3>
+                <p className="text-pink-400">{deal.discount}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const TrendingNow = () => {
+  const products = [
+    {
+      name: "Slim Fit Casual Shirt",
+      brand: "PRAYAN Exclusive",
+      price: "NPR 1,299",
+      originalPrice: "NPR 2,599",
+      discount: "50% OFF",
+      image: "/api/placeholder/220/300"
+    },
+    {
+      name: "Designer Party Dress",
+      brand: "PRAYAN Luxe",
+      price: "NPR 2,499",
+      originalPrice: "NPR 4,999",
+      discount: "50% OFF",
+      image: "/api/placeholder/220/300"
+    },
+    {
+      name: "Classic Denim Jeans",
+      brand: "PRAYAN Basics",
+      price: "NPR 1,799",
+      originalPrice: "NPR 2,999",
+      discount: "40% OFF",
+      image: "/api/placeholder/220/300"
+    },
+    {
+      name: "Ethnic Fusion Top",
+      brand: "PRAYAN Traditions",
+      price: "NPR 899",
+      originalPrice: "NPR 1,799",
+      discount: "50% OFF",
+      image: "/api/placeholder/220/300"
+    },
+    {
+      name: "Premium Cotton T-Shirt",
+      brand: "PRAYAN Sport",
+      price: "NPR 699",
+      originalPrice: "NPR 1,399",
+      discount: "50% OFF",
+      image: "/api/placeholder/220/300"
+    }
+  ];
+
+  return (
+    <div className="bg-gray-50 py-12">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold">TRENDING NOW</h2>
+          <TrendingUp className="text-pink-600" size={24} />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {products.map((product, index) => (
+            <div key={index} className="bg-white group cursor-pointer">
+              <div className="relative">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full"
+                />
+                <Heart className="absolute top-2 right-2 text-gray-400 hover:text-pink-600" size={20} />
+                <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black opacity-0 group-hover:opacity-100 transition-opacity">
+                  <button className="w-full bg-pink-600 text-white py-2 rounded">
+                    ADD TO BAG
+                  </button>
+                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="font-medium text-gray-800">{product.brand}</h3>
+                <p className="text-gray-600 text-sm truncate">{product.name}</p>
+                <div className="mt-2">
+                  <span className="font-semibold">{product.price}</span>
+                  <span className="text-gray-500 line-through text-sm ml-2">{product.originalPrice}</span>
+                  <span className="text-pink-600 text-sm ml-2">{product.discount}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const BrandStrip = () => {
+  const features = [
+    { icon: Tag, text: "100% ORIGINAL guarantee" },
+    { icon: TrendingUp, text: "Latest Fashion Trends" },
+    { icon: ShoppingCart, text: "Free Delivery on orders above NPR 2000" }
+  ];
+
+  return (
+    <div className="border-t border-b py-6">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap justify-around">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <feature.icon className="text-pink-600" size={24} />
+              <span className="font-medium">{feature.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Footer = () => (
+  <footer className="bg-gray-100 pt-12 pb-6">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 className="text-lg font-bold mb-4">ONLINE SHOPPING</h3>
+          <ul className="space-y-2 text-gray-600">
+            <li><a href="#" className="hover:text-pink-600">Men</a></li>
+            <li><a href="#" className="hover:text-pink-600">Women</a></li>
+            <li><a href="#" className="hover:text-pink-600">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold mb-4">CUSTOMER POLICIES</h3>
+          <ul className="space-y-2 text-gray-600">
+            <li><a href="#" className="hover:text-pink-600">Contact Us</a></li>
+            <li><a href="#" className="hover:text-pink-600">FAQ</a></li>
+            <li><a href="#" className="hover:text-pink-600">Terms of Use</a></li>
+            <li><a href="#" className="hover:text-pink-600">Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold mb-4">EXPERIENCE PRAYAN APP</h3>
+          <p className="text-gray-600">Download our app for the best experience</p>
+          <div className="flex space-x-4 mt-4">
+            <img src="/api/placeholder/120/40" alt="Play Store" className="cursor-pointer" />
+            <img src="/api/placeholder/120/40" alt="App Store" className="cursor-pointer" />
+          </div>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold mb-4">CONTACT US</h3>
+          <ul className="space-y-2 text-gray-600">
+            <li>Dhangadhi-4, Kailali</li>
+            <li>Nepal</li>
+            <li>Phone: +977-91-525252</li>
+            <li>Email: care@prayan.com</li>
+          </ul>
+        </div>
+      </div>
+      <div className="border-t border-gray-300 mt-8 pt-6 text-center text-gray-600">
+        <p>© 2024 PRAYAN COLLECTION | All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+);
+
+const HomePage = () => {
+  return (
+    <div className="min-h-screen">
+      <TopBanner />
+      <Navbar />
+      <HeroBanner />
+      <DealsSection />
+      <TrendingNow />
+      <BrandStrip />
+      <Footer />
+    </div>
+  );
+};
+
+export default HomePage;
