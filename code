@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAYAN COLLECTION - Fashion Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo h1 {
+            color: #ff3f6c;
+            font-size: 2rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #f0f0f0;
+            border-radius: 4px;
+            background: #f5f5f6;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #282c3f;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 2rem;
+            background: #fff;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Products Section */
+        .products {
+            background: #f5f5f6;
+            padding: 2rem;
+        }
+
+        .section-title {
+            max-width: 1400px;
+            margin: 0 auto 2rem;
+            color: #282c3f;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            position: relative;
+            padding-top: 133%; /* 4:3 Aspect Ratio */
+        }
+
+        .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wishlist-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            color: #282c3f;
+            margin-bottom: 4px;
+        }
+
+        .product-name {
+            color: #535766;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .current-price {
+            font-weight: 700;
+            color: #282c3f;
+        }
+
+        .original-price {
+            color: #7e818c;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+
+        .discount {
+            color: #ff905a;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* Trending Section */
+        .trending {
+            padding: 2rem;
+            background: white;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .trending-card img {
+            width: 100%;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        .trending-card:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            background: #fafbfc;
+            padding: 4rem 2rem;
+            color: #282c3f;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #696b79;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #282c3f;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>PRAYAN</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#men">MEN</a></li>
+                    <li><a href="#women">WOMEN</a></li>
+                    <li><a href="#kids">KIDS</a></li>
+                    <li><a href="#home">HOME & LIVING</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products, brands and more">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#profile"><i class="far fa-user"></i> Profile</a></li>
+                    <li><a href="#wishlist"><i class="far fa-heart"></i> Wishlist</a></li>
+                    <li><a href="#bag"><i class="fas fa-shopping-bag"></i> Bag</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="categories">
+        <div class="category-grid">
+            <!-- Category Cards -->
+            <div class="category-card">
+                <img src="/api/placeholder/150/150" alt="Men's Fashion">
+                <p>Men's Fashion</p>
+            </div>
+            <div class="category-card">
+                <img src="/api/placeholder/150/150" alt="Women's Fashion">
+                <p>Women's Fashion</p>
+            </div>
+            <div class="category-card">
+                <img src="/api/placeholder/150/150" alt="Kids Wear">
+                <p>Kids Wear</p>
+            </div>
+            <div class="category-card">
+                <img src="/api/placeholder/150/150" alt="Traditional">
+                <p>Traditional</p>
+            </div>
+            <div class="category-card">
+                <img src="/api/placeholder/150/150" alt="Accessories">
+                <p>Accessories</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="trending">
+        <h2 class="section-title">DEALS OF THE DAY</h2>
+        <div class="trending-grid">
+            <div class="trending-card">
+                <img src="/api/placeholder/400/200" alt="Deal 1">
+            </div>
+            <div class="trending-card">
+                <img src="/api/placeholder/400/200" alt="Deal 2">
+            </div>
+            <div class="trending-card">
+                <img src="/api/placeholder/400/200" alt="Deal 3">
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2 class="section-title">TRENDING NOW</h2>
+        <div class="product-grid">
+            <!-- Product Cards -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/400" alt="Traditional Dress">
+                    <button class="wishlist-button">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">PRAYAN ETHNIC</div>
+                    <div class="product-name">Women's Traditional Nepali Dress</div>
+                    <div class="product-price">
+                        <span class="current-price">Rs. 1999</span>
+                        <span class="original-price">Rs. 3999</span>
+                        <span class="discount">(50% OFF)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/400" alt="Men's Suit">
+                    <button class="wishlist-button">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">PRAYAN LUXURY</div>
+                    <div class="product-name">Men's Modern Fit Suit</div>
+                    <div class="product-price">
+                        <span class="current-price">Rs. 8999</span>
+                        <span class="original-price">Rs. 14999</span>
+                        <span class="discount">(40% OFF)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/400" alt="Party Gown">
+                    <button class="wishlist-button">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">PRAYAN GLAMOUR</div>
+                    <div class="product-name">Designer Evening Gown</div>
+                    <div class="product-price">
+                        <span class="current-price">Rs. 5999</span>
+                        <span class="original-price">Rs. 9999</span>
+                        <span class="discount">(40% OFF)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/400" alt="Kurta Set">
+                    <button class="wishlist-button">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="brand-name">PRAYAN FUSION</div>
+                    <div class="product-name">Designer Kurta Set</div>
+                    <div class="product-price">
+                        <span class="current-price">Rs. 2499</span>
+                        <span class="original-price">Rs. 4999</span>
+                        <span class="discount">(50% OFF)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ONLINE SHOPPING</h3>
+                <ul>
+                    <li><a href="#men">Men</a></li>
+                    <li><a href="#women">Women</a></li>
+                    <li><a href="#kids">Kids</a></li>
+                    <li><a href="#home">Home & Living</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CUSTOMER POLICIES</h3>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#terms">Terms of Use</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>STORE INFORMATION</h3>
+                <p>Prayan Collection</p>
+                <p>Dhangadhi, Nepal</p>
+                <p>Phone: +977 XXXXXXXXX</p>
+                <p>Email: contact@prayancollection.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
