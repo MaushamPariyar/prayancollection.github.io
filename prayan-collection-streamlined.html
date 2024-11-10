@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAYAN COLLECTION | Fashion Shopping</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hover-scale:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Banner -->
+    <div class="bg-pink-600 text-white text-center py-2 text-sm font-medium">
+        Flat ₹500 OFF on your first order! Use code: FIRST500
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-3xl font-bold text-pink-600">PRAYAN</h1>
+                </div>
+
+                <!-- Main Nav -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-pink-600">MEN</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">WOMEN</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">KIDS</a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600">TRADITIONAL</a>
+                </div>
+
+                <!-- Search and Icons -->
+                <div class="flex items-center space-x-6">
+                    <div class="relative">
+                        <input type="text" class="bg-gray-100 rounded-md py-2 px-4 w-64" placeholder="Search products...">
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                    <a href="#" class="text-gray-700 hover:text-pink-600"><i class="far fa-user"></i></a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600"><i class="far fa-heart"></i></a>
+                    <a href="#" class="text-gray-700 hover:text-pink-600"><i class="fas fa-shopping-bag"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="relative h-[500px] mb-12">
+        <img src="/api/placeholder/1920/800" alt="Festival Collection" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/30">
+            <div class="absolute bottom-16 left-16 text-white">
+                <h2 class="text-5xl font-bold mb-4">New Arrivals</h2>
+                <p class="text-xl mb-6">Discover the latest fashion trends</p>
+                <button class="bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-md">
+                    Shop Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Categories -->
+    <div class="max-w-7xl mx-auto px-4 mb-16">
+        <h2 class="text-3xl font-bold mb-8">Shop by Category</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Category Cards -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/400/500" alt="Traditional Wear" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Traditional Wear</h3>
+                    <p class="text-gray-600">Up to 60% Off</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/400/500" alt="Western Wear" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Western Wear</h3>
+                    <p class="text-gray-600">30-70% Off</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/400/500" alt="Kids Collection" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Kids Collection</h3>
+                    <p class="text-gray-600">Min 40% Off</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/400/500" alt="Accessories" class="w-full h-64 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Accessories</h3>
+                    <p class="text-gray-600">From ₹299</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trending Products -->
+    <div class="max-w-7xl mx-auto px-4 mb-16">
+        <h2 class="text-3xl font-bold mb-8">Trending Now</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Product Cards -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/600/800" alt="Product 1" class="w-full h-80 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Designer Kurtis</h3>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xl font-bold">₹1,499</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">₹2,999</span>
+                        </div>
+                        <button class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/600/800" alt="Product 2" class="w-full h-80 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Festival Sarees</h3>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xl font-bold">₹2,999</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">₹5,999</span>
+                        </div>
+                        <button class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                <img src="/api/placeholder/600/800" alt="Product 3" class="w-full h-80 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Modern Fusion</h3>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-xl font-bold">₹1,999</span>
+                            <span class="text-sm text-gray-500 line-through ml-2">₹3,999</span>
+                        </div>
+                        <button class="bg-pink-600 text-white px-4 py-2 rounded-md hover:bg-pink-700">
+                            Add to Bag
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold mb-4">ONLINE SHOPPING</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Men</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Women</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Kids</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Traditional</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">CUSTOMER SERVICE</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">FAQs</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Shipping</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-pink-600">Returns</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">CONTACT US</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-600">Dhanadhi, Nepal</li>
+                        <li class="text-gray-600">Phone: +977 123 456 789</li>
+                        <li class="text-gray-600">Email: info@prayan.com</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">FOLLOW US</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-pink-600"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center pt-8 border-t border-gray-200">
+                <p class="text-gray-600">© 2024 PRAYAN COLLECTION, All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
